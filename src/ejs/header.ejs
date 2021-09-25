@@ -1,0 +1,47 @@
+
+<!-- <!DOCTYPE html> -->
+
+<!-- <%= JSON.stringify(htmlWebpackPlugin, null, 2) %> -->
+
+<html>
+  <head>
+    <script>
+      window.dojoConfig = {
+        packages: [
+          {
+            name: "app",
+            location: document.location.pathname.replace(/\/[^/]*$/, '/'),
+            main: "<%= htmlWebpackPlugin.files.js[0].replace(/\.[^/.]+$/, '') %>"
+          },
+        ]
+      };
+    </script>
+
+    <link rel="stylesheet" href="https://js.arcgis.com/4.20/esri/themes/dark/main.css">
+
+
+
+    <% for (var css in htmlWebpackPlugin.files.css) { %>
+    <link href="<%= htmlWebpackPlugin.files.css[css] %>" rel="stylesheet">
+    <% } %>
+
+    <meta charset="utf-8" />
+    <title><%= htmlWebpackPlugin.options.title %></title>
+
+    <meta name="description" content="<%= htmlWebpackPlugin.options.description %>" />
+
+    <meta name="twitter:title" content="<%= htmlWebpackPlugin.options.title %>" />
+    <meta name="twitter:description" content="<%= htmlWebpackPlugin.options.description %>" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://" />
+
+    <meta property="og:title" content="<%= htmlWebpackPlugin.options.title %>" />
+    <meta property="og:description"  content="<%= htmlWebpackPlugin.options.description %>" />
+    <meta property="og:image" content="https://" />
+    <meta property="og:url" content="https://" />
+    <meta property="og:type" content="website" />
+
+    <link rel="icon" media="(prefers-color-scheme:dark)" type="image/png" sizes="32x32" href="https://www.esri.com/content/dam/esrisites/en-us/common/favicon/esri-favicon-dark-32.png">
+    <link rel="icon" media="(prefers-color-scheme:light)" type="image/png" sizes="32x32" href="https://www.esri.com/content/dam/esrisites/en-us/common/favicon/esri-favicon-light-32.png">
+  </head>
+  <body>
